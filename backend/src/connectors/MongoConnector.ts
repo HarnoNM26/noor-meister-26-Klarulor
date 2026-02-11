@@ -31,7 +31,7 @@ export class MongoConnector{
         return await MongoConnector.tryCreateCollection(db);
     }
 
-    public static async getCollection<T>(name: string): Promise<Collection<T>>{
+    public static async getCollection<T>(name: string = collection_name): Promise<Collection<T>>{
         const db = MongoConnector._client.db("database1");
         return db.collection<T>(name);
     }

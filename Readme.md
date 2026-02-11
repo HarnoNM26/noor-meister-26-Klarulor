@@ -15,6 +15,8 @@
 3. Mongodb - Connector to MongoDB database
 4. Axios - Http request tool
 5. @types/node - Typescript node support
+6. Zod - For validation
+7. Moment.Js - For validation time and dates
 
 Backend is using 3000/tcp port as http by default.
 

@@ -25,5 +25,9 @@ const cors = require(`cors`);
 
     setupEndpoints(app);
 
-    app.listen(3000, () => console.log(`App is successfully listening to 3000 port`));
+    try{
+        app.listen(3000, () => console.log(`App is successfully listening to 3000 port`));
+    }catch(err){
+        console.log(`Cant listen 3000/tcp port`, err);
+    }
 })();

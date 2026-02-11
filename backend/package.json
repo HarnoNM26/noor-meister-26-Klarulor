@@ -12,10 +12,14 @@
     "migrate": "npx ts-node src --migrate"
   },
   "dependencies": {
+    "@types/axios": "^0.9.36",
     "@types/node": "^25.2.3",
+    "axios": "^1.13.5",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "moment": "^2.30.1",
     "mongodb": "^7.1.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "zod": "^4.3.6"
   }
 }
