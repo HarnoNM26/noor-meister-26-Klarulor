@@ -17,11 +17,9 @@ const cors = require(`cors`);
         if(process.argv.find(x => x.includes("migrate"))){
             await MongoConnector.migrate();
             console.log(`Successfully migrated. Now you can run program via "npm run" start`);
-            return;
         }
         if(!await MongoConnector.checkHealth()){
             console.log(`Migration needed. Run migration via command 'npm run migrate'`);
-            return;
         }
     }
 

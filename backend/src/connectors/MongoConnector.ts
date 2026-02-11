@@ -4,10 +4,14 @@ const collection_name = "EnergyReading";
 
 export class MongoConnector{
     private static _isConnected: boolean;
+    private static _isHealth: boolean;
     private static _client: MongoClient;
 
     public static get isConnected(){
         return MongoConnector._isConnected;
+    }
+    public static get isHealth(){
+        return MongoConnector._isHealth;
     }
 
     public static async connect(): Promise<boolean>{
@@ -50,6 +54,7 @@ export class MongoConnector{
     public static async checkHealth(): Promise<boolean>{
         const db = MongoConnector._client.db("database1");;
         const colls = await db.listCollections().toArray();
-        return !!colls.find(x => x.name == collection_name);
+        this._isHealth = !!colls.find(x => x.name == collection_name);
+        return this._isHealth;
     }
 }
