@@ -77,7 +77,7 @@ Returns array of time frames
 }[]
 ```
 
-
+**Backend may return not 200 status code in error situations. So look not only into browser renderer but in response as code and data**
 
 
 # Contacts
