@@ -7,7 +7,7 @@
 3. Mongodb - Connector to MongoDB database
 4. Axios - Http request tool
 
-Backend is using 3000/tcp port as http
+Backend is using 3000/tcp port as http by default.
 
 ## Frontend
 ### Using libraries
@@ -15,6 +15,7 @@ Backend is using 3000/tcp port as http
 2. Vite - Creation tool
 3. Axios - Http request tool
 
+Frontend is using 8085/tcp port as https by default.
 
 # How to run
 `If you cloned it without node_modules, run install.bat file to install every dependency`
