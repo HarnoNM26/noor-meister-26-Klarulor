@@ -1,2 +1,2 @@
 cd frontend
-npm run start:dev
+npx vite --port 8085

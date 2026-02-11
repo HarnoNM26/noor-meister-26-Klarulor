@@ -20,3 +20,4 @@ Backend is using 3000/tcp port as http
 1. Download or open existing main folder
 2. Run `run_backend.bat` to run backend
 3. Run `run_frontend.bat` to run frontend
+4. Visit http://127.0.0.1:8085/ website
