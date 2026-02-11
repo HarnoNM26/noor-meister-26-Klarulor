@@ -21,14 +21,13 @@ export class JsonImpoerService{
 
         const col =  await MongoConnector.getCollection<EnergyReading>();
         const cache: EnergyReading[] = await col.find({}).toArray();
-        console.log(cache)
-        let nextId = cache.length == 0 ? 0 : cache.sort((a,b) => a.id > b.id ? 1 : -1)[0].id+1;
-
+        let nextId = cache.length == 0 ? 0 : cache.sort((a,b) => a.id > b.id ? -1 : 1)[0].id+1;
+        console.log(`next id: ${nextId}`)
         const append: EnergyReading[] = [];
         for(const x of arr){
             try{
                 const momentDate = moment(x.timestamp, moment.ISO_8601, true);
-                if(!momentDate.isValid())
+                if(!momentDate.isValid() || !isNaN(+x.timestamp))
                 {
                     skipped++;
                     continue;

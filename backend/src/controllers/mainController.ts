@@ -45,6 +45,12 @@ export function setupEndpoints(app): void{
             const startDate = new Date(start);
             const endDate = new Date(end);
 
+            if(!isNaN(+start) || !isNaN(+end)){
+                res.status(400);
+                res.end("Bad request. Start and end date must be in ISO 8601 format!");
+                return;
+            }
+
             if(isNaN(startDate.getTime()) || isNaN(endDate.getTime())){
                 res.status(400);
                 res.end("Bad request. Bad start or end data was provided");
