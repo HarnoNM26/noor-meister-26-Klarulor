@@ -17,6 +17,7 @@ Backend is using 3000/tcp port as http
 
 
 # How to run
+`If you cloned it without node_modules, run install.bat file to install every dependency`
 1. Download or open existing main folder
 2. Run `run_backend.bat` to run backend
 3. Run `run_frontend.bat` to run frontend

@@ -1,4 +1,4 @@
-import { Collection, Db, MongoClient } from "mongodb";
+import { Collection, Db, MongoClient, } from "mongodb";
 
 const collection_name = "EnergyReading";
 
@@ -32,7 +32,11 @@ export class MongoConnector{
         try{
             const colls = await db.listCollections().toArray();
             if(!colls.find(x => x.name == collection_name)){
-                await db.createCollection(collection_name);
+                await db.createCollection(collection_name, {
+                    validator: {
+                        
+                    }
+                })
                 console.log(`Successfully created collection`)
             }
         }catch(err){
