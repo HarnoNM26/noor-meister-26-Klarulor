@@ -17,6 +17,11 @@ export class MongoConnector{
     public static async connect(): Promise<boolean>{
         try{
             MongoConnector._client = new MongoClient('mongodb://127.0.0.1:27017');
+            MongoConnector._client.on(`close`, () => {
+                this._isConnected = false;
+                this._isHealth = false;
+                console.log(`Database connection is closed. Check it and restart this backend!\nSome services may be broken!!!`);
+            })
             console.log(`Successfully connected to db`);
             this._isConnected = true;
             return true;
