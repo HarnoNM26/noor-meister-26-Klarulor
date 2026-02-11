@@ -41,10 +41,10 @@ export function EleringSynchronizationComponent(){
     return <div>
         <div style={{display: 'grid'}}>
             <span>Selectors: </span>
-            <span>Start date: <input type="datetime-local" style={{maxWidth:100}} onChange={d => {
+            <span>Start date: <input className="input" type="datetime-local" style={{maxWidth:100}} onChange={d => {
                 setStartDate(d.target.value);
             }}></input></span>
-            <span>End date: <input type="datetime-local" style={{maxWidth:100}} onChange={d => {
+            <span style={{marginTop: 5}}>End date: <input className="input" type="datetime-local" style={{maxWidth:100, marginLeft: 5}} onChange={d => {
                 setEndDate(d.target.value);
             }}></input></span>
             <span>Location: <select onChange={s => {
@@ -55,7 +55,18 @@ export function EleringSynchronizationComponent(){
                 <option value="LV">LV</option>
                 <option value="FI">FI</option></select></span>
 
-                <button style={{backgroundColor: "#B8F5DA"}} disabled={isWorking} onClick={syncPrices}>Sync prices</button>
+                <button className="button" disabled={isWorking} style={{maxWidth: 200, marginLeft: 540}} onClick={syncPrices}><svg
+      viewBox="0 0 16 16"
+      className="bi bi-lightning-charge-fill"
+      fill="currentColor"
+      height="16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"
+      ></path></svg>
+    Sync prices</button>
         </div>
     </div>
 }

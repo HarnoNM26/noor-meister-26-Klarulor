@@ -84,7 +84,7 @@ Required query parameters:
     * end - End time to slice in UNIX timestamp ISO 8601
     * location - Price locations. **ONLY Available: EE, LV, FI**<br>
 Returns 200 if ok
-```
+
 
 
 **Backend may return not 200 status code in error situations. So look not only into browser renderer but in response as code and data**
