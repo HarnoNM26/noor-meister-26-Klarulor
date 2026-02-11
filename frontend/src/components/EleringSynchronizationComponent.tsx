@@ -55,7 +55,7 @@ export function EleringSynchronizationComponent(){
                 <option value="LV">LV</option>
                 <option value="FI">FI</option></select></span>
 
-                <button className="button" disabled={isWorking} style={{maxWidth: 200, marginLeft: 540}} onClick={syncPrices}><svg
+                <button className="button" disabled={isWorking} style={{maxWidth: 200, marginLeft: "42%"}} onClick={syncPrices}><svg
       viewBox="0 0 16 16"
       className="bi bi-lightning-charge-fill"
       fill="currentColor"
