@@ -27,7 +27,7 @@ Backend is using 3000/tcp port as http by default.
 
 Frontend is using 8085/tcp port as https by default.
 
-# How to run
+## How to run
 If you cloned it without node_modules, run `install.ps1` file to install every dependency. P.S. Right click on file, select `Run with Powershell`.
 | Or go to backend folder, open terminal and write `npm i`, same with frontend folder.
 1. Download or open existing main folder
@@ -38,6 +38,33 @@ If you cloned it without node_modules, run `install.ps1` file to install every d
 4. Run `run_frontend.bat` to run frontend
 | Or manually open frontend folder, there terminal and run `npx vite --port 8085`
 5. Visit http://127.0.0.1:8085/ website
+
+## API Backend endpoints
+1. GET /api/health<br>
+Returns status of server
+```
+{
+    "status": "ok" | "bad",
+    "db": "ok" | "bad"
+}
+```
+
+2. POST /api/import/json<br>
+Importing new data of electricity prices<br>
+Request body(may be one object or array of objects):
+```
+{
+    timestamp: string, // Time in ISO-8601 format
+    location: string,
+    price_eur_mwh: number // Price in euro per 1 MegaWattHour 
+}
+```
+3. GET /api/readings<br>
+Getting electricity prices by filter<br>
+Required query parameters:
+    * start - Start time to slice in UNIX timestamp ISO 8601
+    * end - End time to slice in UNIX timestamp ISO 8601
+    * location - Price locations. **ONLY Available: EE, LV, FI**
 
 
 
