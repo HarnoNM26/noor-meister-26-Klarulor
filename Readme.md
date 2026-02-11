@@ -64,7 +64,19 @@ Getting electricity prices by filter<br>
 Required query parameters:
     * start - Start time to slice in UNIX timestamp ISO 8601
     * end - End time to slice in UNIX timestamp ISO 8601
-    * location - Price locations. **ONLY Available: EE, LV, FI**
+    * location - Price locations. **ONLY Available: EE, LV, FI**<br>
+Returns array of time frames
+```
+{
+    timestamp: string, // ISO 8601
+    location: string,
+    price_eur_mwh: number,
+    id: number,
+    source: string, // 'UPLOAD' or 'API'
+    created_at: string // ISO 8601 format
+}[]
+```
+
 
 
 
