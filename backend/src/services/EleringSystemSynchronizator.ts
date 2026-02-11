@@ -22,8 +22,6 @@ export class EleringSystemSynchronizator {
                 if(cacheTarget){
                     await col.updateOne({_id: cacheTarget._id}, {$set: {price_eur_mwh: price}});
                 }else{
-
-
                     const obj: EnergyReading = {
                         id: nextId++,
                         price_eur_mwh: price,
