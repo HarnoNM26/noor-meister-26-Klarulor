@@ -10,7 +10,7 @@ export class InternalElectricityPriceService {
             const data = await col.find().toArray();
             const allowed = data.filter(x => {
                 const dateTime = new Date(x.timestamp).getTime();
-                return dateTime > startDateTime && dateTime < endDateTime && x.location.toLowerCase() == location.toLowerCase();
+                return dateTime >= startDateTime && dateTime <= endDateTime && x.location.toLowerCase() == location.toLowerCase();
             });
             return {
                     isSuccess: true,
