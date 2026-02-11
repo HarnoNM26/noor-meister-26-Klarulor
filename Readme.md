@@ -1,5 +1,8 @@
 # Elering connection
 
+## Tools
+1. MongoDB - Database with dynamic schema that runs at 27017 port.
+
 ## Backend
 ### using libraries:
 1. Express - http server
