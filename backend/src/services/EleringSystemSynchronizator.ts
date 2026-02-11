@@ -17,7 +17,7 @@ export class EleringSystemSynchronizator {
 
         for(const x of priceData){
             const price = x.price;
-            const cacheTarget = cache.find(z => z.location.toLowerCase() == location.toLowerCase() && new Date(z.timestamp).getTime() == x.timestamp);
+            const cacheTarget = cache.find(z => z.location.toLowerCase() == location.toLowerCase() && new Date(z.timestamp).getTime() == x.timestamp*1000);
             if(cacheTarget){
                 await col.updateOne({_id: cacheTarget._id}, {$set: {price_eur_mwh: price}});
             }else{

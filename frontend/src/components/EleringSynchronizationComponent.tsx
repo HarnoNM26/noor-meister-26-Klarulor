@@ -20,8 +20,6 @@ export function EleringSynchronizationComponent(){
                 return;
             }
 
-
-            const selectedParam = selectedLocation;
             setIsWorking(true);
             axios.post(`${backend_base_url}/api/sync/prices?start=${startParam}&end=${endParam}&location=${selectedLocation}`).then(x => {
                 alert(`Database successfully was updated for price lists`);
@@ -54,8 +52,8 @@ export function EleringSynchronizationComponent(){
                 setSelectedLocation(value);
             }}>
                 <option value="EE">EE</option>
-                <option value="EE">LV</option>
-                <option value="EE">FI</option></select></span>
+                <option value="LV">LV</option>
+                <option value="FI">FI</option></select></span>
 
                 <button style={{backgroundColor: "#B8F5DA"}} disabled={isWorking} onClick={syncPrices}>Sync prices</button>
         </div>
