@@ -1,18 +1,24 @@
 import * as axios from 'axios';
+import { EleringService } from '../src/services/EleringService';
 
-const start = "1921-02-11T12:06:28.502Z";
-const end = "2029-02-11T12:06:28.502Z";
+const start = "2026-01-11T12:06:28.502Z";
+const end = "2026-02-11T12:06:28.502Z";
 const location = "LV";
-
-
-axios.post("http://127.0.0.1:3000/api/import/json", 
-    [{
-        timestamp: start,
-        location: "lv",
-        price_eur_mwh: 666
-    }]
-).then(x => console.log(x.data));
+const base_url = "https://dashboard.elering.ee";
 
 
 
-axios.get(`http://127.0.0.1:3000/api/readings?start=${start}&end=${end}&location=${location}`).then(x => console.log(x.data)).catch(x => console.log(x, `Code: ${x.status}`, `Data: ${x.response?.data}`));
+EleringService.getPriceRanges(start,end,"ee").then(console.log);
+
+
+// axios.post("http://127.0.0.1:3000/api/import/json", 
+//     [{
+//         timestamp: start,
+//         location: "lv",
+//         price_eur_mwh: 666
+//     }]
+// ).then(x => console.log(x.data));
+
+
+
+// axios.get(`http://127.0.0.1:3000/api/readings?start=${start}&end=${end}&location=${location}`).then(x => console.log(x.data)).catch(x => console.log(x, `Code: ${x.status}`, `Data: ${x.response?.data}`));

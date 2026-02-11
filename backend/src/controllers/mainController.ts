@@ -1,5 +1,7 @@
 import { MongoConnector } from "../connectors/MongoConnector";
+import { isISOFormat } from "../functions";
 import { EnergyReading } from "../schems/EnergyReading";
+import { EleringSystemSynchronizator } from "../services/EleringSystemSynchronizator";
 import { HealtService } from "../services/HealthService";
 import { InternalElectricityPriceService } from "../services/InternalElectricityPriceService";
 import { JsonImpoerService } from "../services/JsonImportService";
@@ -72,5 +74,29 @@ export function setupEndpoints(app): void{
             console.log(`Error while handling the request`, err);
         }
 
+    });
+
+    app.post(`/api/sync/prices`, async (req, res) => {
+        try{
+            let {start, end, location} = req.query;
+            if(!isISOFormat(start) || !isISOFormat(end)){
+                const curDate = new Date(Date.now());
+                const startDate = new Date(curDate.getUTCFullYear(), curDate.getUTCMonth(), curDate.getDate(), 0,0,0);
+                const endDate = new Date(curDate.getUTCFullYear(), curDate.getUTCMonth(), curDate.getDate(), 23, 59, 59);
+                start = startDate.toISOString();
+                end = endDate.toISOString();
+            }
+            if(!location){
+                location = 'EE';
+            }
+
+            const obj = await EleringSystemSynchronizator.handleRequest(start,end,location);
+            if(!obj){
+                res.status(400).json({error: "PRICE_API_UNVAILABLE"});
+            }else res.status(200).end();
+        }catch(err){
+            console.log(err);
+            res.status(400).end("Server issues to handle this data");
+        }
     });
 }

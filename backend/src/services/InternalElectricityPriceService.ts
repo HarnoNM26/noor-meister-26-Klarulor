@@ -1,6 +1,5 @@
 import { MongoConnector } from "../connectors/MongoConnector";
 import { EnergyReading } from "../schems/EnergyReading";
-
 export class InternalElectricityPriceService {
     public static async handleRequest(startDate: Date, endDate: Date, location: string): Promise<{isSuccess: boolean, message?: string, data: EnergyReading[]}>{
         try{
