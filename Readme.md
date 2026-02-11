@@ -51,7 +51,7 @@ Returns status of server
 
 2. POST /api/import/json<br>
 Importing new data of electricity prices<br>
-Request body(**may be one object or array of objects**):
+Request body( **may be one object or array of objects** ):
 ```
 {
     timestamp: string, // Time in ISO-8601 format
@@ -82,6 +82,6 @@ Returns array of time frames
 
 # Contacts
 ## Noormeister 2026
-Ida-Virumaa Kutsehariduskeskus Tarvaraarendaja 4 kursus
-Vladislav Šišelov.
-vladislav.shishelov@gmail.com
+Ida-Virumaa Kutsehariduskeskus Tarvaraarendaja 4 kursus<br>
+Vladislav Šišelov.<br>
+vladislav.shishelov@gmail.com<br>
