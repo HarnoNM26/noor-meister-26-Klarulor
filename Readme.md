@@ -1,5 +1,8 @@
 # Elering connection
 
+## Instructions
+1. Every console out may be not the same as here in readme file because here is full guide how to run. There is professional execution context. 
+
 ## Tools
 1. MongoDB - Database with dynamic schema that runs at 27017 port.
 
