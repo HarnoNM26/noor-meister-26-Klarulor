@@ -36,7 +36,6 @@ export class EleringSystemSynchronizator {
                     });
                 }
             }
-
             return true;
         }catch(err){
             console.log(`Happened exception while handling request`, err);
