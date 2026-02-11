@@ -11,13 +11,13 @@ const base_url = "https://dashboard.elering.ee";
 // EleringService.getPriceRanges(start,end,"ee").then(console.log);
 
 
-// axios.post("http://127.0.0.1:3000/api/import/json", 
-//     [{
-//         timestamp: start,
-//         location: "lv",
-//         price_eur_mwh: 666
-//     }]
-// ).then(x => console.log(x.data));
+axios.post("http://127.0.0.1:3000/api/import/json", 
+    [{
+        timestamp: start,
+        location: "lv",
+        price_eur_mwh: 666
+    }]
+).then(x => console.log(x.data));
 
 
 
