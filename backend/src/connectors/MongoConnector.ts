@@ -10,20 +10,21 @@ export class MongoConnector{
         return MongoConnector._isConnected;
     }
 
-    public static async connect(): Promise<void>{
+    public static async connect(): Promise<boolean>{
         try{
             MongoConnector._client = new MongoClient('mongodb://127.0.0.1:27017');
             console.log(`Successfully connected to db`);
             this._isConnected = true;
+            return true;
         }catch(err){
             console.log(`Error while connecting to mongodb`, err);
-            process.exit(1);
+            return false;
         }
     }
 
-    public static async migrate(): Promise<void>{
+    public static async migrate(): Promise<boolean>{
         const db = MongoConnector._client.db("database1");
-        await MongoConnector.tryCreateCollection(db);
+        return await MongoConnector.tryCreateCollection(db);
     }
 
     public static async getCollection<T>(name: string): Promise<Collection<T>>{
@@ -31,16 +32,18 @@ export class MongoConnector{
         return db.collection<T>(name);
     }
 
-    private static async tryCreateCollection(db: Db): Promise<void>{
+    private static async tryCreateCollection(db: Db): Promise<boolean>{
         try{
             const colls = await db.listCollections().toArray();
             if(!colls.find(x => x.name == collection_name)){
                 await db.createCollection(collection_name);
                 console.log(`Successfully created collection`);
+                return true;
             }
+            return false;
         }catch(err){
             console.log(`Cant create collection`, err);
-            process.exit(1);
+            return false;
         }
     }
 

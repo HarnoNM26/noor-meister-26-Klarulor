@@ -1,12 +1,13 @@
 import { MongoConnector } from "../connectors/MongoConnector";
+import { HealtService } from "../services/HealthService";
 
 export function setupEndpoints(app): void{
     app.get(`/health`, (req, res) => {
-        const isHealth = MongoConnector.isConnected;
+        const isHealth = HealtService.checkHealth();
         if(!isHealth){
             res.status(400);
             res.json({
-                status: "bad",
+                status: "ok", // ok means that http server is running so it can handle requests
                 db: "bad"
             })
         }else{

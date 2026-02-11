@@ -13,18 +13,19 @@ const cors = require(`cors`);
     app.use(json());
     app.use(cors("*")); 
 
-    await MongoConnector.connect();
-
-    if(process.argv.find(x => x.includes("migrate"))){
-        await MongoConnector.migrate();
-        console.log(`Successfully migrated. Now you can run program via "npm run" start`);
-        return;
-    }
-    if(!await MongoConnector.checkHealth()){
-        console.log(`Migration needed. Run migration via command 'npm run migrate'`);
-        return;
+    if(await MongoConnector.connect()){
+        if(process.argv.find(x => x.includes("migrate"))){
+            await MongoConnector.migrate();
+            console.log(`Successfully migrated. Now you can run program via "npm run" start`);
+            return;
+        }
+        if(!await MongoConnector.checkHealth()){
+            console.log(`Migration needed. Run migration via command 'npm run migrate'`);
+            return;
+        }
     }
 
     setupEndpoints(app);
+
     app.listen(3000, () => console.log(`App is successfully listening to 3000 port`));
 })();
