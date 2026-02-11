@@ -2,7 +2,7 @@ import { MongoConnector } from "../connectors/MongoConnector";
 import { HealtService } from "../services/HealthService";
 
 export function setupEndpoints(app): void{
-    app.get(`/health`, (req, res) => {
+    app.get(`/api/health`, (req, res) => {
         const isHealth = HealtService.checkHealth();
         if(!isHealth){
             res.status(400);

@@ -6,7 +6,7 @@ function App() {
   const [health, setHealth] = useState<boolean>(false);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:3000/health").then(x => {
+    axios.get("http://127.0.0.1:3000/api/health").then(x => {
       if(x.status == 200){
         const data = x.data as {status: "ok" | "bad", db: "ok" | "bad"};
         if(data && data.db == "ok" && data.status == "ok")
