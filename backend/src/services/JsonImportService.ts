@@ -47,7 +47,9 @@ export class JsonImpoerService{
                 }
 
                 append.push({
-                    ...x,
+                    location: x.location,
+                    price_eur_mwh: x.price_eur_mwh,
+                    timestamp: x.timestamp,
                     id: nextId++,
                     source: "UPLOAD",
                     created_at: new Date(Date.now())
