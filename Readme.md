@@ -9,6 +9,7 @@
 3. Typescript Language 
 
 ## Backend
+Warning! Backend using internet for external Elering API.
 ### Using libraries:
 1. Express - http server
 2. Cors - Security for http server
@@ -76,6 +77,15 @@ Returns array of time frames
     created_at: string // ISO 8601 format
 }[]
 ```
+4. POST /api/sync/prices<br>
+Update price list from Elering API<br>
+Required query parameters:
+    * start - Start time to slice in UNIX timestamp ISO 8601
+    * end - End time to slice in UNIX timestamp ISO 8601
+    * location - Price locations. **ONLY Available: EE, LV, FI**<br>
+Returns 200 if ok
+```
+
 
 **Backend may return not 200 status code in error situations. So look not only into browser renderer but in response as code and data**
 
