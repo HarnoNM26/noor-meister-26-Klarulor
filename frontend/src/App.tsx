@@ -12,12 +12,12 @@ function App() {
         if(data && data.db == "ok" && data.status == "ok")
           setHealth(true);
       }
-    });
+    }).catch(console.log);
   }, []);
 
   return <div>
     <div style={{display: 'flex'}}>
-      <span>Backend {health ? "OK" : "connection is timeout. Check if it working or not."}</span>
+      <span>Backend {health ? "OK" : "connection is timeout. Check if it working or not.\nFull error log you can see in browser console"}</span>
     </div>
   </div>
 }

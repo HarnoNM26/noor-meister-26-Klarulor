@@ -18,7 +18,7 @@ Backend is using 3000/tcp port as http by default.
 Frontend is using 8085/tcp port as https by default.
 
 # How to run
-`If you cloned it without node_modules, run install.bat file to install every dependency`
+`If you cloned it without node_modules, run install.ps1 file to install every dependency`
 1. Run `migrate_backend.bat` to run database collection creating
 2. Download or open existing main folder
 3. Run `run_backend.bat` to run backend
