@@ -4,7 +4,9 @@
 1. Every console out may be not the same as here in readme file because here is full guide how to run. There is professional execution context. 
 
 ## Tools
-1. MongoDB - Database with dynamic schema that runs at 27017 port.
+1. MongoDB - Database with dynamic schema that runs at 27017 port
+2. NodeJS - V8 Javascript Engine Runtime
+3. Typescript Language 
 
 ## Backend
 ### using libraries:
@@ -12,6 +14,7 @@
 2. Cors - Security for http server
 3. Mongodb - Connector to MongoDB database
 4. Axios - Http request tool
+5. @types/node - Typescript node support
 
 Backend is using 3000/tcp port as http by default.
 
