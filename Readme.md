@@ -108,9 +108,9 @@ Returns 200 with
     deleted: number // count of deleted items
 }
 ```
-6. GET /api/insights/prices
-Get price insights
-Returns
+6. GET /api/insights/prices<br>
+Get price insights<br>
+Returns<br>
 ```
 {
     average_price: number;
