@@ -25,6 +25,10 @@ export function Insights(){
 
         const startDateObject = new Date(startDate);
         const endDateObject = new Date(endDate);
+        if(startDateObject.getTime() > endDateObject.getTime()){
+            setData(null);
+            return;
+        }
         const startParam = startDateObject.toISOString();
         const endParam = endDateObject.toISOString();
         axios.get(`${backend_base_url}/api/insights/prices?start=${startParam}&end=${endParam}&location=${selectedLocation}`).then(x => {
@@ -70,14 +74,14 @@ export function Insights(){
                     new Date(endDate).getTime() < new Date(startDate).getTime() ? <p>End date must be greater that start date</p> : <p>No data for that location and period</p>
             )
             ) : <div>
-                <p>
+                <span>
                     Average price for selected period: {data.average_price} Eur/MWh<br></br>
                     Minimum price for selected period: {data.min_price} Eur/MWh<br></br>
                     Maximum price for selected period: {data.max_price} Eur/MWh<br></br>
                     
-                    Cheapest slots for selected period are: <br></br>{cheapesSlotsHumanFormat.map(x => <p> - {x}</p>)}<br></br>
-                    Expensive slots for selected period are: <br></br>{expensiveSlotsHumanFormat.map(x => <p>- {x}</p>)}<br></br>
-                </p>
+                    Cheapest slots for selected period are: <br></br>{cheapesSlotsHumanFormat.map(x => <p key={x}> - {x}</p>)}<br></br>
+                    Expensive slots for selected period are: <br></br>{expensiveSlotsHumanFormat.map(x => <p key={x}>- {x}</p>)}<br></br>
+                </span>
                 </div>}
         </div>
     </div>
