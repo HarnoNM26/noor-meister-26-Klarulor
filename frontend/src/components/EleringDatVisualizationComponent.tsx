@@ -59,7 +59,7 @@ export function EleringDatVisualizationComponent(){
         const y: number[] = [];
 
         for(let i = 0; i < data.length; i++){
-            if(i % offset == 0){
+            if(i % offset == 0 || true){
                 const e = data[i];
                 const date = new Date(e.timestamp);
                 x.push(e.timestamp);
@@ -98,7 +98,8 @@ export function EleringDatVisualizationComponent(){
             xAxis: {
               name: "time",
               type: 'category',
-              data: x
+              data: x,
+              min: (x?.length ?? 0)-200
             },
             yAxis: {
               type: 'value',
@@ -127,7 +128,8 @@ export function EleringDatVisualizationComponent(){
             xAxis: {
               name: "time",
               type: 'category',
-              data: dailyAverageOptionsX
+              data: dailyAverageOptionsX,
+              max: dailyAverageOptionsX?.length ?? 100
             },
             yAxis: {
               type: 'value',
@@ -197,7 +199,7 @@ export function EleringDatVisualizationComponent(){
             xAxis: {
               name: "time",
               type: 'category',
-              data: allDailyAverageOptionsX
+              data: allDailyAverageOptionsX,
             },
             yAxis: {
               type: 'value',
