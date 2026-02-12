@@ -1,3 +1,2 @@
 cd backend
-npm run test
-pause
+start cmd /k npm run test

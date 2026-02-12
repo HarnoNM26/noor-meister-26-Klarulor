@@ -1,3 +1,2 @@
 cd backend
-npx ts-node src
-pause
+start cmd /k npx ts-node src

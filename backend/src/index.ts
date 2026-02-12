@@ -35,5 +35,6 @@ const cors = require(`cors`);
         }
     }catch(err){
         console.log(`Cant start program, some exception:`, err.message);
+        setTimeout(() => {}, 99999999)
     }
 })();

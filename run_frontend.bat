@@ -1,3 +1,2 @@
 cd frontend
-npx vite --port 8085
-pause
+start cmd /k npx vite --port 8085
