@@ -46,7 +46,7 @@ export class MongoConnector{
             const colls = await db.listCollections().toArray();
             if(!colls.find(x => x.name == collection_name)){
                 await db.createCollection(collection_name);
-                console.log(`Successfully created collection`);
+                console.log(`Successfully migrated with collection`);
                 return true;
             }
             return false;
