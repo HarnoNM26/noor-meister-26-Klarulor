@@ -40,7 +40,7 @@ If you cloned it without node_modules, run `install.ps1` file to install every d
 | Or run by yourself command in backend folder `npm run migrate`.
 3. Run `run_backend.bat` to run backend<br>
 | Or manually open backend folder, there terminal and run `npm run start`.
-4. Run `run_frontend.bat` to run frontend<br>.
+4. Run `run_frontend.bat` to run frontend<br>
 | Or manually open frontend folder, there terminal and run `npx vite --port 8085`
 5. Visit http://127.0.0.1:8085/ website.
 
