@@ -1,4 +1,4 @@
-# Noormeister 2026 Module A&B&C by Klarulor
+# Noormeister 2026 Module A&B&C&D&E by Klarulor
 
 ## Instructions
 1. Every console out may be not the same as here in readme file because here is full guide how to run. There is professional execution context. 
