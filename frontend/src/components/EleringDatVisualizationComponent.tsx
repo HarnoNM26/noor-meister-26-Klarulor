@@ -15,7 +15,6 @@ export function EleringDatVisualizationComponent(){
 
     function tryRequestData(){
         try{
-            console.log(selectedLocation, null, startDate, null, endDate)
             if(selectedLocation == "" || startDate == "" || endDate == "")
                 return;
 
@@ -34,12 +33,10 @@ export function EleringDatVisualizationComponent(){
                 axios.get(`${backend_base_url}/api/readings?start=${startParam}&end=${endParam}&location=${loc}`).then(x => {
                     const newObj: any = {};
                     for(const k in allData){
-                        console.log(`Setup ${k}`)
                         newObj[k] = allData[k];
                     }
 
                     newObj[loc] = x.data;
-                    console.log(newObj, loc, x.data)
                     setAllData(newObj);
                     allData = newObj;
                 }).catch(() => {
@@ -48,7 +45,6 @@ export function EleringDatVisualizationComponent(){
             }
         }catch(err){
             alert(`Cant handle response from server and recycle it. Check console for more details`);
-            console.log(err);
         }
     }
 
@@ -87,8 +83,6 @@ export function EleringDatVisualizationComponent(){
             dailyAverageOptionsY.push(+(e.price_eur_mwh ?? 0)?.toFixed(2) );
         }
 
-        console.log(count, offset, x.length, y.length)
-
         const option: EChartsOption = {
             title: {
               text: 'Price over time',
@@ -112,7 +106,7 @@ export function EleringDatVisualizationComponent(){
             },
             series: [
               {
-                name: 'Eur/MWh',
+                name: `${selectedLocation} Eur/MWh`,
                 type: 'line',
                 data: y
               },
@@ -141,7 +135,7 @@ export function EleringDatVisualizationComponent(){
             },
             series: [
               {
-                name: 'Eur/MWh',
+                name: `${selectedLocation} Eur/MWh`,
                 type: 'line',
                 data: dailyAverageOptionsY
               },
@@ -248,7 +242,6 @@ export function EleringDatVisualizationComponent(){
                             const date = new Date(e.timestamp);
                             // if(allDataXs.includes(e.timestamp))
                             //     allDataXs.push(e.timestamp);
-                            console.log(ii)
                             if(ii == 0){
                                 allDataXs.push(date.toISOString());
                             }
@@ -260,8 +253,6 @@ export function EleringDatVisualizationComponent(){
         }catch(err){
             alert("Cant render compare price chart, no valid data provided");
         }
-
-        console.log(allDataYs)
 
         const compareOption: EChartsOption = {
             title: {
@@ -309,19 +300,14 @@ export function EleringDatVisualizationComponent(){
             <div style={{display: 'grid'}}>
                 <span>Selectors: </span>
                 <span>Start date: <input className="input" type="datetime-local" style={{maxWidth:100}}  onChange={d => {
-                    console.log(`change`, d.target.value)
                     setStartDate(d.target.value);
-                    //tryRequestData();
                 }}></input></span>
                 <span style={{marginTop: 5}}>End date: <input className="input" type="datetime-local" style={{maxWidth:100, marginLeft: 5}} onChange={d => {
-                    console.log(`change2`, d.target.value)
                     setEndDate(d.target.value);
-                    //tryRequestData();
                 }}></input></span>
                 <span>Location: <select onChange={s => {
                     const value = s.target.options[s.target.selectedIndex].value; 
                     setSelectedLocation(value);
-                    //tryRequestData();
                 }}>
                     <option value="EE">EE</option>
                     <option value="LV">LV</option>
@@ -332,14 +318,17 @@ export function EleringDatVisualizationComponent(){
                 <EChartsReact option={dailyAverageOptions} style={{ height: '400px', width: '100%' }} />
                 <EChartsReact option={averagePricePerLocationOption} style={{ height: '400px', width: '100%' }} />
                 <EChartsReact option={compareOption} style={{ height: '400px', width: '100%' }} />
-            </div> : <p>Select fields to visualize data</p>}
+            </div> : (
+                endDate == "" || startDate == "" ? <p>Select fields to visualize data</p> : <p>No data for that location and period</p>
+            )}
         </div>
+        
     }catch(err){
         console.log(err);
     }
     return <div>
         <p>
-            Error while visualizing the data, check console for more details
+            Error while visualizing the data, check console for more details or try to select other data!
         </p>
     </div>
 }
