@@ -95,6 +95,6 @@ Returns 200 if ok
 
 # Contacts
 ## Noormeister 2026
-Ida-Virumaa Kutsehariduskeskus Tarvaraarendaja 4 kursus<br>
+Ida-Virumaa Kutsehariduskeskus Tarkvaraarendaja 4 kursus<br>
 Vladislav Šišelov.<br>
 vladislav.shishelov@gmail.com<br>
