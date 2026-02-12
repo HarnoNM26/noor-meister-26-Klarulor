@@ -38,3 +38,7 @@ const cors = require(`cors`);
         setTimeout(() => {}, 99999999)
     }
 })();
+
+process.on(`uncaughtException`, e => {
+    console.log(`Application tried to stop itself. See error and restart it.`, e.message);
+})
