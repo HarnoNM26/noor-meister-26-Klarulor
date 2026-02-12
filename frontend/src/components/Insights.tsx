@@ -75,8 +75,8 @@ export function Insights(){
                     Minimum price for selected period: {data.min_price} Eur/MWh<br></br>
                     Maximum price for selected period: {data.max_price} Eur/MWh<br></br>
                     
-                    Cheapest slots for selected period are: <br></br><ul>{cheapesSlotsHumanFormat.map(x => <li>{x}</li>)}</ul><br></br>
-                    Expensive slots for selected period are: <br></br><ul>{expensiveSlotsHumanFormat.map(x => <li>{x}</li>)}</ul><br></br>
+                    Cheapest slots for selected period are: <br></br>{cheapesSlotsHumanFormat.map(x => <p> - {x}</p>)}<br></br>
+                    Expensive slots for selected period are: <br></br>{expensiveSlotsHumanFormat.map(x => <p>- {x}</p>)}<br></br>
                 </p>
                 </div>}
         </div>
