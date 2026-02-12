@@ -55,7 +55,7 @@ export class PriceInsightsService{
                 max_price: maxPrice,
                 cheapest_slots: cheapestSlots,
                 most_expensive_slots: expensiveSlots
-            };;
+            };
             return obj;
         }catch(err){
             console.log(`Error was while hasndilng thr request`, err.message);
