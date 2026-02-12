@@ -27,7 +27,6 @@ export class PriceInsightsService{
             }
             average = +(average/allowed.length).toFixed(2);
             const sortedRaw = allowed.sort((a,b) => a.price_eur_mwh >= b.price_eur_mwh ? 1 : -1);
-            console.log(sortedRaw)
             if(!sortedRaw[0]){
                 return null;
             }
@@ -37,14 +36,12 @@ export class PriceInsightsService{
             let cheapestSlots: {price: number, date: number}[] = [];
             for(let i = 0; i < Math.min(sortedRaw.length, 3); i++){
                 cheapestSlots.push({date: new Date(sortedRaw[i].timestamp).getTime(), price: sortedRaw[i].price_eur_mwh});
-                console.log(`ch: ${sortedRaw[i].price_eur_mwh}`)
             }
             let expensiveSlots: {price: number, date: number}[] = [];
             sortedRaw.reverse()
             for(let i = 0; i < Math.min(sortedRaw.length, 3); i++){
 
                 expensiveSlots.push({date: new Date(sortedRaw[i].timestamp).getTime(), price: sortedRaw[i].price_eur_mwh});
-                console.log(`exp: ${sortedRaw[i].price_eur_mwh}`)
             }
 
             cheapestSlots = cheapestSlots.sort((a,b) => a.date > b.date ? 1 : -1);
@@ -59,7 +56,6 @@ export class PriceInsightsService{
                 cheapest_slots: cheapestSlots,
                 most_expensive_slots: expensiveSlots
             };;
-            console.log(obj, expensiveSlots[0].date == cheapestSlots[0].date)
             return obj;
         }catch(err){
             console.log(`Error was while hasndilng thr request`, err.message);
