@@ -3,7 +3,7 @@
 ## Instructions
 1. Every console out may be not the same as here in readme file because here is full guide how to run. There is professional execution context. 
 
-## Tools
+## Tools & Environment
 1. MongoDB - Database with dynamic schema that runs at 27017 port
 2. NodeJS - V8 Javascript Engine Runtime
 3. Typescript - Language as JavaScript but more type orientated 
