@@ -144,14 +144,12 @@ export function EleringDatVisualizationComponent(){
             ]
         };
 
-        let selectedLocationPercent = 0;
         let averagePrice = 0;
         for(const x of data){
             averagePrice += x.price_eur_mwh ?? 0;
         }
         averagePrice /= data.length;
         averagePrice = +averagePrice.toFixed(2);
-        selectedLocationPercent = 100;
 
 
         const allDailyAverageOptionsX: string[] = [];
