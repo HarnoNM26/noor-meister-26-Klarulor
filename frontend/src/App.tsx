@@ -5,6 +5,7 @@ import { EleringSynchronizationComponent } from './components/EleringSynchroniza
 import { backend_base_url } from './main';
 import { EleringDatVisualizationComponent } from './components/EleringDatVisualizationComponent';
 import { DataDeletingComponent } from './components/DataDeletingComponent';
+import { Insights } from './components/Insights';
 
 function App() {
   const [health, setHealth] = useState<boolean>(false);
@@ -34,6 +35,9 @@ function App() {
       <EleringSynchronizationComponent></EleringSynchronizationComponent>
       <hr></hr>
       <DataDeletingComponent></DataDeletingComponent>
+      <hr></hr>
+      <p>Insights</p>
+      <Insights></Insights>
       <hr></hr>
       <p>Data visualization</p>
       <EleringDatVisualizationComponent></EleringDatVisualizationComponent>

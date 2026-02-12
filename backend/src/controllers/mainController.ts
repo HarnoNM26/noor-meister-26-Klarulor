@@ -6,6 +6,7 @@ import { EleringSystemSynchronizator } from "../services/EleringSystemSynchroniz
 import { HealtService } from "../services/HealthService";
 import { InternalElectricityPriceService } from "../services/InternalElectricityPriceService";
 import { JsonImpoerService } from "../services/JsonImportService";
+import { PriceInsightsService } from "../services/PriceInsightsService";
 
 export function setupEndpoints(app): void{
     app.get(`/api/health`, (req, res) => {
@@ -128,4 +129,38 @@ export function setupEndpoints(app): void{
             res.status(400).end(`Happened error on server side. Check backend`);
         }
     })
+
+    app.get(`/api/insights/prices`, async (req, res) => {
+        try{
+            const {start, end, location} = req.query;
+
+            if(!start || !end || !location){
+                res.status(400);
+                res.end("Bad request. No start or end or location query paramethers");
+                return;
+            }
+            const startDate = new Date(start);
+            const endDate = new Date(end);
+            if(!isNaN(+start) || !isNaN(+end)){
+                res.status(400);
+                res.end("Bad request. Start and end date must be in ISO 8601 format!");
+                return;
+            }
+            if(isNaN(startDate.getTime()) || isNaN(endDate.getTime())){
+                res.status(400);
+                res.end("Bad request. Bad start or end data was provided");
+                return;
+            }
+            if(typeof location !== "string" || !["ee", "lv", "fi"].includes(location.toLowerCase())){
+                res.status(400);
+                res.end("Bad request. Only EE, LV, FI countries are allowed");
+                return;
+            }
+            const data = await PriceInsightsService.getInsights(startDate, endDate, location);
+            res.status(200).json(data);
+        }catch(err){
+            req.status(400).end("Happened error on server side");
+        }
+
+    });
 }
