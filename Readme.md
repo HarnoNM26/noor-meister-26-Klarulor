@@ -108,6 +108,18 @@ Returns 200 with
     deleted: number // count of deleted items
 }
 ```
+6. GET /api/insights/prices
+Get price insights
+Returns
+```
+{
+    average_price: number;
+    min_price: number;
+    max_price: number;
+    cheapest_slots: {price: number, date: number}[];
+    most_expensive_slots: {price: number, date: number}[];
+}
+```
 
 
 
