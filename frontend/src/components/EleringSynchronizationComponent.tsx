@@ -3,7 +3,7 @@ import { useState } from "react"
 import { backend_base_url } from "../main";
 
 export function EleringSynchronizationComponent(){
-    const [selectedLocation, setSelectedLocation] = useState<string>("");
+    const [selectedLocation, setSelectedLocation] = useState<string>("EE");
     const [startDate, setStartDate] = useState<string>("");
     const [endDate, setEndDate] = useState<string>("");
     const [isWorking, setIsWorking] = useState<boolean>(false);
