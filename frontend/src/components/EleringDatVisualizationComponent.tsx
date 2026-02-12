@@ -319,7 +319,9 @@ export function EleringDatVisualizationComponent(){
                 <EChartsReact option={averagePricePerLocationOption} style={{ height: '400px', width: '100%' }} />
                 <EChartsReact option={compareOption} style={{ height: '400px', width: '100%' }} />
             </div> : (
-                endDate == "" || startDate == "" ? <><p>Select fields to visualize data. </p><p>If you need to see average per day, select next day too!</p></> : <p>No data for that location and period</p>
+                endDate == "" || startDate == "" ? <><p>Select fields to visualize data. </p><p>If you need to see average per day, select next day too!</p></> : (
+                    new Date(endDate).getTime() < new Date(startDate).getTime() ? <p>End date must be greater that start date</p> : <p>No data for that location and period</p>
+                )
             )}
         </div>
         

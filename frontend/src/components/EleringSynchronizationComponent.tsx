@@ -14,6 +14,11 @@ export function EleringSynchronizationComponent(){
             const endDateObject = new Date(endDate);
             const startParam = startDateObject.toISOString();
             const endParam = endDateObject.toISOString();
+
+            if(startDateObject.getTime() > endDateObject.getTime()){
+                alert(`Review input paramethers. Start date cant be greater that end date!`);
+                return;
+            }
             
              if(!startDateObject || !endDateObject || !startParam || !startDate || !endParam || !endDate || (startDateObject.getTime() > endDateObject.getTime())){
                 alert("Bad data selected!");
