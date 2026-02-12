@@ -25,6 +25,8 @@ Backend is using 3000/tcp port as http by default.
 1. React - Framework for ui
 2. Vite - Creation tool
 3. Axios - Http request tool
+4. echarts - Graph/Charts visualizer
+5. react-echarts-library - chart visualizer for react
 
 Frontend is using 8085/tcp port as https by default.
 

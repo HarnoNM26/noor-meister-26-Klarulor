@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios';
 import { EleringSynchronizationComponent } from './components/EleringSynchronizationComponent';
 import { backend_base_url } from './main';
+import { EleringDatVisualizationComponent } from './components/EleringDatVisualizationComponent';
 
 function App() {
   const [health, setHealth] = useState<boolean>(false);
@@ -30,6 +31,9 @@ function App() {
     <div>
       <span>Backend {health ? "OK" : problemText}</span>
       <EleringSynchronizationComponent></EleringSynchronizationComponent>
+      <hr></hr>
+      <p>Data visualization</p>
+      <EleringDatVisualizationComponent></EleringDatVisualizationComponent>
     </div>
   </div>
 }
