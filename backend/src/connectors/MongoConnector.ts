@@ -48,7 +48,7 @@ export class MongoConnector{
                 await db.createCollection(collection_name);
                 console.log(`Successfully migrated with collection`);
                 return true;
-            }
+            }else console.log(`Migration already is produced some collections. If you need it again, delete old collections`);
             return false;
         }catch(err){
             console.log(`Cant create collection`, err.message);
