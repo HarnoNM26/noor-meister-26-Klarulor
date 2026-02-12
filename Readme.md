@@ -22,7 +22,7 @@ Warning! Backend using internet for external Elering API.
 Backend is using 3000/tcp port as http by default.
 
 ## Frontend
-### Using libraries
+### Using libraries:
 1. React - Framework for ui
 2. Vite - Creation tool for react project
 3. Axios - Http/https request tool
