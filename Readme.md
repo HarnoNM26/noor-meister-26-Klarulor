@@ -6,7 +6,7 @@
 ## Tools
 1. MongoDB - Database with dynamic schema that runs at 27017 port
 2. NodeJS - V8 Javascript Engine Runtime
-3. Typescript Language 
+3. Typescript - Language as JavaScript but more type orientated 
 
 ## Backend
 Warning! Backend using internet for external Elering API.
@@ -36,17 +36,21 @@ Before using data chart visualization, price sync is needed to handle data from 
 If you cloned it without node_modules, run `install.ps1` file to install every dependency. P.S. Right click on file, select `Run with Powershell`.
 | Or go to backend folder, open terminal and write `npm i`, same with frontend folder.
 1. Download or open existing main folder
-2. Run `migrate_backend.bat` to run database collection creating.
+2. Run `migrate_backend.bat` to run database collection creating.<br>
 | Or run by yourself command in backend folder `npm run migrate`.
-3. Run `run_backend.bat` to run backend
+3. Run `run_backend.bat` to run backend<br>
 | Or manually open backend folder, there terminal and run `npm run start`.
-4. Run `run_frontend.bat` to run frontend
+4. Run `run_frontend.bat` to run frontend<br>.
 | Or manually open frontend folder, there terminal and run `npx vite --port 8085`
-5. Visit http://127.0.0.1:8085/ website
+5. Visit http://127.0.0.1:8085/ website.
 
-### How to run test
+### How to run tests
 1. You need to up the backend service.
-2. Next you need to run `run_backend_tests.bat` file and see the results.
+2. Next you need to run `run_backend_tests.bat` file and see the results<br>
+| Or manually open backend folder, there terminal and run `npm run test`.
+
+### How to import JSON data
+To import json data there is endpoint with number 2. `POST /api/import/json`. Look down to see its arguments and return objects;
 
 ## API Backend endpoints
 1. GET /api/health<br>
