@@ -29,6 +29,7 @@ Backend is using 3000/tcp port as http by default.
 5. react-echarts-library - chart visualizer for react
 
 Frontend is using 8085/tcp port as https by default.
+Before using data chart visualization, price sync is needed to handle data from Elering API to backend.
 
 ## How to run
 If you cloned it without node_modules, run `install.ps1` file to install every dependency. P.S. Right click on file, select `Run with Powershell`.
