@@ -110,7 +110,7 @@ export function setupEndpoints(app): void{
         try{
             const {source} = req.query;
             if(source !== "UPLOAD"){
-                res.status(400).end(`Query parameter 'source' must be UPLOAD, not any others`);
+                res.status(400).end(`Query parameter 'source' must be UPLOAD, not any others now`);
                 return;
             }
 
