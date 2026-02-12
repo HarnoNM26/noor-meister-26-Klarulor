@@ -110,6 +110,10 @@ Returns 200 with
 ```
 6. GET /api/insights/prices<br>
 Get price insights<br>
+Required query parameters:
+    * start - Start time to slice in UNIX timestamp ISO 8601
+    * end - End time to slice in UNIX timestamp ISO 8601
+    * location - Price locations. **ONLY Available: EE, LV, FI**<br>
 Returns<br>
 ```
 {
