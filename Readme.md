@@ -25,16 +25,16 @@ Backend is using 3000/tcp port as http by default.
 ### Using libraries
 1. React - Framework for ui
 2. Vite - Creation tool for react project
-3. Axios - Http request tool
+3. Axios - Http/https request tool
 4. echarts - Graph/Charts visualizer
 5. react-echarts-library - chart visualizer for react
 
-Frontend is using 8085/tcp port as https by default.<br>
+Frontend is using 8085/tcp port as http by default.<br>
 Before using data chart visualization, price sync is needed to handle data from Elering API to backend.
 
 ## How to run
-If you cloned it without node_modules, run `install.ps1` file to install every dependency. P.S. Right click on file, select `Run with Powershell`.
-| Or go to backend folder, open terminal and write `npm i`, same with frontend folder.
+If you cloned it without node_modules, run `install.ps1` file to install every dependency. P.S. Right click on file, select `Run with Powershell`.<br>
+| Or go to backend folder, open terminal and write `npm i`, **same with frontend folder**.
 1. Download or open existing main folder
 2. Run `migrate_backend.bat` to run database collection creating.<br>
 | Or run by yourself command in backend folder `npm run migrate`.
