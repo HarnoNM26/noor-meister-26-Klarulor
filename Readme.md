@@ -17,6 +17,7 @@ Warning! Backend using internet for external Elering API.
 4. Axios - Http request tool
 5. @types/node - Typescript node support
 7. Moment.Js - For validation time and dates
+8. Jest - For auto testing
 
 Backend is using 3000/tcp port as http by default.
 

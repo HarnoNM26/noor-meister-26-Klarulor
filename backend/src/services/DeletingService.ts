@@ -12,7 +12,7 @@ export class DeletingService {
 
             return status.deletedCount;
         }catch(err){
-            console.log(`Error while handling service request`, err);
+            console.log(`Error while handling service request`, err.message);
         }
         return null;
     }

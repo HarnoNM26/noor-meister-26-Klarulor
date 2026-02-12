@@ -26,7 +26,7 @@ export class MongoConnector{
             this._isConnected = true;
             return true;
         }catch(err){
-            console.log(`Error while connecting to mongodb`, err);
+            console.log(`Error while connecting to mongodb`, err.message);
             return false;
         }
     }
@@ -51,7 +51,7 @@ export class MongoConnector{
             }
             return false;
         }catch(err){
-            console.log(`Cant create collection`, err);
+            console.log(`Cant create collection`, err.message);
             return false;
         }
     }

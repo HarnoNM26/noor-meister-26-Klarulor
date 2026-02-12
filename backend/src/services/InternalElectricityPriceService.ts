@@ -19,7 +19,7 @@ export class InternalElectricityPriceService {
                 })
             }
         }catch(err){
-            console.log(`Error while handling internal electricity price service`, err);
+            console.log(`Error while handling internal electricity price service`, err.message);
             return {
                 isSuccess: false,
                 data: [],

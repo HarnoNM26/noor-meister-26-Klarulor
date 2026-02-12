@@ -32,7 +32,7 @@ export function setupEndpoints(app): void{
             
         }catch(err){
             res.status(400).end("Server issues to handle this data");
-            console.log(`Error while handling the request`, err);
+            console.log(`Error while handling the request`, err.message);
         }
     });
     app.get(`/api/readings`, async (req,res) => {
@@ -72,7 +72,7 @@ export function setupEndpoints(app): void{
             }else res.end(data.message);
         }catch(err){
             res.status(400).end("Server issues to handle this data");
-            console.log(`Error while handling the request`, err);
+            console.log(`Error while handling the request`, err.message);
         }
 
     });
@@ -101,25 +101,31 @@ export function setupEndpoints(app): void{
                 res.status(400).json({error: "PRICE_API_UNVAILABLE"});
             }else res.status(200).end();
         }catch(err){
-            console.log(err);
+            console.log(`Error while handling controller post request at /api/sync/prices`, err.message);
             res.status(400).end("Server issues to handle this data");
         }
     });
 
     app.delete(`/api/readings`, async (req, res) => {
-        const {source} = req.query;
-        if(source !== "UPLOAD"){
-            res.status(400).end(`Source parameter must be UPLOAD, not any others`);
-            return;
-        }
+        try{
+            const {source} = req.query;
+            if(source !== "UPLOAD"){
+                res.status(400).end(`Source parameter must be UPLOAD, not any others`);
+                return;
+            }
 
-        const deleted = await DeletingService.deleteEntities(source);
-        if(!deleted){
+            const deleted = await DeletingService.deleteEntities(source);
+            if(deleted == null){
+                res.status(400).end(`Happened error on server side. Check backend`);
+                return;
+            }
+            res.status(200).json({
+                deleted
+            });
+        }catch(err){
+            console.log(`Error while handling controller post request at /api/readings`, err.message);
+
             res.status(400).end(`Happened error on server side. Check backend`);
-            return;
         }
-        res.status(200).json({
-            deleted
-        });
     })
 }

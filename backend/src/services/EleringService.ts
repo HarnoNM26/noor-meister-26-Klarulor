@@ -13,7 +13,7 @@ export class EleringService{
             }
             return null;
         }catch(err){
-            console.log(err,`\n!!! In the top you can see almost http response from elering.\n Start: ${start} | End: ${end} | Field: ${field}`);
+            console.log(err.message,`\n!!! In the top you can see almost http response from elering.\n Start: ${start} | End: ${end} | Field: ${field}`);
             return null;
         }
     }

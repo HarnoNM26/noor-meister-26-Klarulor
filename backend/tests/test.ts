@@ -15,7 +15,7 @@ axios.post("http://127.0.0.1:3000/api/import/json",
     [{
         timestamp: start,
         location: "lv",
-        price_eur_mwh: 666
+        price_eur_mwh: 7777
     }]
 ).then(x => console.log(x.data));
 

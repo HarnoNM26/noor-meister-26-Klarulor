@@ -4,6 +4,7 @@ import axios from 'axios';
 import { EleringSynchronizationComponent } from './components/EleringSynchronizationComponent';
 import { backend_base_url } from './main';
 import { EleringDatVisualizationComponent } from './components/EleringDatVisualizationComponent';
+import { DataDeletingComponent } from './components/DataDeletingComponent';
 
 function App() {
   const [health, setHealth] = useState<boolean>(false);
@@ -31,6 +32,8 @@ function App() {
     <div>
       <span>Backend {health ? "OK" : problemText}</span>
       <EleringSynchronizationComponent></EleringSynchronizationComponent>
+      <hr></hr>
+      <DataDeletingComponent></DataDeletingComponent>
       <hr></hr>
       <p>Data visualization</p>
       <EleringDatVisualizationComponent></EleringDatVisualizationComponent>
