@@ -96,6 +96,19 @@ Required query parameters:
     * end - End time to slice in UNIX timestamp ISO 8601
     * location - Price locations. **ONLY Available: EE, LV, FI**<br>
 Returns 200 if ok
+5. DELETE /api/readings<br>
+Delete all records with type<br>
+**Note: Now only 'UPLOAD' arguments is valid**<br>
+Required query parameters:
+    * source - 'UPLOAD'<br>
+Returns 400 with data context if there is problem.
+Returns 200 with
+```
+{
+    deleted: number // count of deleted items
+}
+```
+
 
 
 
