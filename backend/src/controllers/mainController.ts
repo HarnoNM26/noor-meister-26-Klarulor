@@ -1,6 +1,7 @@
 import { MongoConnector } from "../connectors/MongoConnector";
 import { isISOFormat } from "../functions";
 import { EnergyReading } from "../schems/EnergyReading";
+import { DeletingService } from "../services/DeletingService";
 import { EleringSystemSynchronizator } from "../services/EleringSystemSynchronizator";
 import { HealtService } from "../services/HealthService";
 import { InternalElectricityPriceService } from "../services/InternalElectricityPriceService";
@@ -85,6 +86,11 @@ export function setupEndpoints(app): void{
                 const endDate = new Date(curDate.getUTCFullYear(), curDate.getUTCMonth(), curDate.getDate(), 23, 59, 59);
                 start = startDate.toISOString();
                 end = endDate.toISOString();
+
+                if(endDate.getTime() < startDate.getTime()){
+                    res.status(400).end(`End date must be greater that start date`);
+                    return;
+                }
             }
             if(!location){
                 location = 'EE';
@@ -99,4 +105,21 @@ export function setupEndpoints(app): void{
             res.status(400).end("Server issues to handle this data");
         }
     });
+
+    app.delete(`/api/readings`, async (req, res) => {
+        const {source} = req.query;
+        if(source !== "UPLOAD"){
+            res.status(400).end(`Source parameter must be UPLOAD, not any others`);
+            return;
+        }
+
+        const deleted = await DeletingService.deleteEntities(source);
+        if(!deleted){
+            res.status(400).end(`Happened error on server side. Check backend`);
+            return;
+        }
+        res.status(200).json({
+            deleted
+        });
+    })
 }
