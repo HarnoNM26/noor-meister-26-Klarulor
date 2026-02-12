@@ -4,10 +4,10 @@ import { EnergyReading } from "../schems/EnergyReading";
 import { PostEnergyReadingDto } from "../dto/post.data.dto";
 const moment = require('moment');
 
-type HandleRequestReturnType = {success: boolean, successResponse?: { skipped: number, inserted: number, duplicatesDetected: number} | undefined};
+export type JsonImpoerServiceHandleRequestReturnType = {success: boolean, successResponse?: { skipped: number, inserted: number, duplicatesDetected: number} | undefined};
 
 export class JsonImpoerService{
-    public static async handleRequest(data: PostEnergyReadingDto[] | PostEnergyReadingDto): Promise<HandleRequestReturnType>{
+    public static async handleRequest(data: PostEnergyReadingDto[] | PostEnergyReadingDto): Promise<JsonImpoerServiceHandleRequestReturnType>{
         try{
             if(!data){
                 return {
