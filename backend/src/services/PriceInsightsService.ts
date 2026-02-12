@@ -10,7 +10,7 @@ type GetInsightsResponseType = {
 }
 
 export class PriceInsightsService{
-    public static async getInsights(start: Date, end: Date, location: string): Promise<GetInsightsResponseType>{
+    public static async getInsights(start: Date, end: Date, location: string): Promise<GetInsightsResponseType | null>{
         try{
             const startDateTime = start.getTime();
             const endDateTime = end.getTime();
@@ -28,6 +28,9 @@ export class PriceInsightsService{
             average = +(average/allowed.length).toFixed(2);
             const sortedRaw = allowed.sort((a,b) => a.price_eur_mwh >= b.price_eur_mwh ? 1 : -1);
             console.log(sortedRaw)
+            if(!sortedRaw[0]){
+                return null;
+            }
             const minPrice = sortedRaw[0].price_eur_mwh;
             const maxPrice = sortedRaw[sortedRaw.length-1].price_eur_mwh;
 
@@ -59,7 +62,7 @@ export class PriceInsightsService{
             console.log(obj, expensiveSlots[0].date == cheapestSlots[0].date)
             return obj;
         }catch(err){
-            console.log(`Error was while hasndilng thr request`, err);
+            console.log(`Error was while hasndilng thr request`, err.message);
         }
     }
 }

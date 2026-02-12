@@ -157,6 +157,10 @@ export function setupEndpoints(app): void{
                 return;
             }
             const data = await PriceInsightsService.getInsights(startDate, endDate, location);
+            if(data == null){
+                res.status(400).end(`Error happened`)
+                return;
+            }
             res.status(200).json(data);
         }catch(err){
             req.status(400).end("Happened error on server side");
