@@ -44,6 +44,10 @@ If you cloned it without node_modules, run `install.ps1` file to install every d
 | Or manually open frontend folder, there terminal and run `npx vite --port 8085`
 5. Visit http://127.0.0.1:8085/ website
 
+### How to run test
+1. You need to up the backend service.
+2. Next you need to run `run_backend_tests.bat` file and see the results.
+
 ## API Backend endpoints
 1. GET /api/health<br>
 Returns status of server

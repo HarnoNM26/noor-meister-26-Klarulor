@@ -9,7 +9,7 @@
   "scripts": {
     "test": "npx jest",
     "start": "npx ts-node src",
-    "migrate": "npx ts-node src --migrate",
+    "migrate": "npx ts-node src --migrate"
   },
   "dependencies": {
     "@types/axios": "^0.9.36",
