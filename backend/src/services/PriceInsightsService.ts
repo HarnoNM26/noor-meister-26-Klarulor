@@ -44,8 +44,8 @@ export class PriceInsightsService{
                 console.log(`exp: ${sortedRaw[i].price_eur_mwh}`)
             }
 
-            // cheapestSlots = cheapestSlots.sort((a,b) => a.date > b.date ? 1 : -1);
-            // expensiveSlots = cheapestSlots.sort((a,b) => a.date > b.date ? 1 : -1);
+            cheapestSlots = cheapestSlots.sort((a,b) => a.date > b.date ? 1 : -1);
+            expensiveSlots = cheapestSlots.sort((a,b) => a.date > b.date ? 1 : -1);
 
 
 
