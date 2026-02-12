@@ -18,7 +18,7 @@ export function DataDeletingComponent(){
     
     return <div>
         <div>
-        <button onClick={() => {
+        <button style={{backgroundColor:'#FFCFC7'}} onClick={() => {
             deleteData();
         }}>Delete UPLOAD data</button>
         <p>{!isDeleted ? "" : (
